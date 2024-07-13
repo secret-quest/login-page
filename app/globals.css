@@ -1,33 +1,175 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-color: rgba(26, 26, 26, 0.7);
+  --secondary-color: #ffffff;
+  --accent-color: #b8860b;
+  --text-color: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text-color);
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.hero {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  background-color: rgba(26, 26, 26, 0.7);
+  padding: 40px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--accent-color);
+}
+
+h1, h2 {
+  color: var(--secondary-color);
+  text-shadow: 0 0 15px var(--accent-color);
+}
+
+h1 { font-size: 48px; margin-bottom: 20px; }
+h2 { font-size: 24px; margin-bottom: 15px; }
+
+.cta-button, .join-button {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover, .join-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+.info-section {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  background-color: rgba(26, 26, 26, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--accent-color);
+}
+
+.info-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.info-list li {
+  margin-bottom: 15px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tower-name {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.quest-info {
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.join-button {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+/* Style for Dynamic Widget */
+:root {
+  --dynamic-widget-background-color: transparent;
+  --dynamic-widget-color: var(--secondary-color);
+  --dynamic-widget-border-color: var(--accent-color);
+}
+
+/* You might need to adjust these styles depending on the exact structure of the Dynamic Widget */
+div[class*="StyledRootContainer"] {
+  background-color: transparent !important;
+}
+
+button[class*="StyledButtonContainer"] {
+  color: var(--secondary-color) !important;
+  border-color: var(--accent-color) !important;
 }
