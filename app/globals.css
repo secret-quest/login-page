@@ -152,10 +152,35 @@ h2 { font-size: 24px; margin-bottom: 15px; }
   font-style: italic;
 }
 
-.join-button {
-  align-self: flex-start;
-  margin-top: 10px;
+.tower-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.spectate-button, .join-button {
+  padding: 5px 10px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+/* World ID Widget styles */
+.world-id-button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.world-id-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
 
 /* Style for Dynamic Widget */
 :root {
@@ -172,4 +197,37 @@ div[class*="StyledRootContainer"] {
 button[class*="StyledButtonContainer"] {
   color: var(--secondary-color) !important;
   border-color: var(--accent-color) !important;
+}
+
+.worldcoin-button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-right: 10px;
+}
+
+.worldcoin-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* Adjust the existing button styles to match */
+.cta-button,
+.spectate-button,
+.join-button {
+  /* ... existing styles ... */
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
