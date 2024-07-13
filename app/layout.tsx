@@ -2,6 +2,7 @@
 
 import { DynamicContextProvider } from "@dynamic-labs/sdk-react-core";
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
+import { SessionProvider } from "next-auth/react";
 import '../app/globals.css'
 
 export default function RootLayout({
@@ -11,19 +12,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
-      <body>
+      <SessionProvider>
         <DynamicContextProvider
           settings={{
             environmentId: process.env.NEXT_PUBLIC_DYNAMIC_ENVIRONMENT_ID!,
             walletConnectors: [EthereumWalletConnectors],
           }}
         >
-          {children}
+          <body>{children}</body>
         </DynamicContextProvider>
-      </body>
+      </SessionProvider>
     </html>
   )
 }
